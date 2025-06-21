@@ -53,6 +53,59 @@
       background-color: #ffa94d;
       transform: scale(1.03);
     }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #1a1a1a;
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: left;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .modal-content h2 {
+      color: #fff;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .modal-content button {
+      background-color: #ff6a00;
+      color: #000;
+      font-weight: bold;
+      padding: 0.75rem;
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .modal-content button:hover {
+      background-color: #ffa94d;
+    }
   </style>
 </head>
 <body>
@@ -65,8 +118,8 @@
   <img src="LOGO-JP-AUDIO-2025.png" alt="JP Audio" class="logo">
 
   <div class="container">
+    <a class="btn-link" href="#" onclick="abrirModal()">📞 WhatsApp Vendas</a>
     <a class="btn-link" href="#">🔥 Produto Destaque</a>
-    <a class="btn-link" href="https://wa.me/5599984491491?text=Ol%C3%A1%20%F0%9F%91%8B%2C%20quero%20conhecer%20os%20produtos%20JP%20Audio%20%F0%9F%94%A5" target="_blank">📞 WhatsApp Vendas</a>
     <a class="btn-link" href="#">🛒 Onde Comprar</a>
     <a class="btn-link" href="#">❓ Dúvidas Frequentes</a>
     <a class="btn-link" href="#">📘 Catálogo JP Audio</a>
@@ -74,6 +127,37 @@
     <a class="btn-link" href="https://instagram.com/jpaudio" target="_blank">📷 Instagram Oficial</a>
     <a class="btn-link" href="#">🤝 Seja um Revendedor</a>
   </div>
+
+  <div class="modal" id="modalWhatsapp">
+    <div class="modal-content">
+      <h2>Fale com a JP Audio</h2>
+      <input type="text" id="nome" placeholder="Seu nome">
+      <input type="text" id="cidade" placeholder="Sua cidade">
+      <input type="text" id="estado" placeholder="Seu estado (sigla)">
+      <button onclick="enviarWhatsapp()">Enviar pelo WhatsApp</button>
+    </div>
+  </div>
+
+  <script>
+    function abrirModal() {
+      document.getElementById('modalWhatsapp').style.display = 'flex';
+    }
+
+    function enviarWhatsapp() {
+      const nome = document.getElementById('nome').value.trim();
+      const cidade = document.getElementById('cidade').value.trim();
+      const estado = document.getElementById('estado').value.trim().toUpperCase();
+
+      if (!nome || !cidade || !estado) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+      }
+
+      const msg = `Ol%C3%A1%20%F0%9F%91%8B%2C%20me%20chamo%20${encodeURIComponent(nome)}%20e%20sou%20de%20${encodeURIComponent(cidade)}%20-%20${encodeURIComponent(estado)}.%20Quero%20conhecer%20os%20produtos%20JP%20Audio%20%F0%9F%94%A5`;
+      const url = `https://wa.me/5599984491491?text=${msg}`;
+      window.open(url, '_blank');
+    }
+  </script>
 
 </body>
 </html>
