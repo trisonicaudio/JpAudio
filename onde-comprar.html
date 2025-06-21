@@ -45,7 +45,8 @@
 
     .card p {
       margin: 0.25rem 0;
-      font-size: 1rem; color: #333;
+      font-size: 1rem; 
+      color: #333;
     }
 
     .card button {
@@ -74,28 +75,80 @@
     .modal {
       display: none;
       position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background-color: #333;
-    color: #ccc;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 1.8rem;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 0 10px #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1001;
-  }
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
 
-  .btn-home:hover {
-    background-color: #ffa94d;
-  }
-</style>
+    .modal-content {
+      background-color: #ffffff;
+      color: #333;
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: left;
+      width: 90%;
+      max-width: 400px;
+      position: relative;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    .modal-content h2 {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    .input-wrapper {
+      display: flex;
+      align-items: center;
+      background-color: #f2f2f2;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      padding: 0.5rem 0.75rem;
+    }
+
+    .input-wrapper span {
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .input-wrapper input {
+      border: none;
+      outline: none;
+      background: transparent;
+      flex: 1;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .btn-home {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #ccc;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.8rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1001;
+    }
+
+    .btn-home:hover {
+      background-color: #ffa94d;
+    }
+  </style>
 </head>
 <body>
 
@@ -189,12 +242,9 @@
   }
 </script>
 
-<div class="container" style="margin-top: 2rem;">
-  <a class="btn-link" href="index.html">⬅ Voltar para a Página Inicial</a>
-</div>
-
 <a href="index.html" class="btn-home" title="Voltar para Início">
   <img src="botao-home.png" alt="Início" style="width: 24px; height: 24px;">
 </a>
+
 </body>
 </html>
