@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onde Comprar - JP Audio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Rubik', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #ff6a00;
+      font-size: 1.8rem;
+      margin-top: 2rem;
+    }
+
+    p.sub {
+      color: #ccc;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1rem;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 0 10px #111;
+    }
+
+    .card h2 {
+      color: #ffa94d;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      margin: 0.25rem 0;
+      font-size: 0.95rem;
+    }
+
+    .card button {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      background-color: #ff6a00;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .card button:hover {
+      background-color: #ffa94d;
+    }
+
+    .footer {
+      color: #aaa;
+      margin: 3rem 1rem 1rem;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .input-wrapper {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    .input-wrapper input {
+      width: 100%;
+      padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .input-wrapper span {
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: #999;
+    }
+
+    .modal-content button {
+      background-color: #ff6a00;
+      color: #000;
+      font-weight: bold;
+      padding: 0.75rem;
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .modal-content button:hover {
+      background-color: #ffa94d;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Onde Comprar JP Audio</h1>
+<p class="sub">Escolha um revendedor autorizado mais próximo e fale direto com quem entende de som automotivo.</p>
+
+<div class="card">
+  <h2>TOURO SOM</h2>
+  <p>📍 Imperatriz - MA</p>
+  <p>✅ Revende para: MA, TO, PA</p>
+  <p>🚫 Não distribui</p>
+  <button onclick="abrirModal('Touro Som', '5599991990505')">Falar com Touro Som</button>
+</div>
+
+<div class="card">
+  <h2>ELETROFONE</h2>
+  <p>📍 Imperatriz - MA</p>
+  <p>✅ Revende para: MA, TO, PA</p>
+  <p>🚫 Não distribui</p>
+  <button onclick="abrirModal('Eletrofone', '5599984998764')">Falar com Eletrofone</button>
+</div>
+
+<div class="card">
+  <h2>SMART AUDIO</h2>
+  <p>📍 Goiânia - GO</p>
+  <p>✅ Revende para: GO, DF, MG</p>
+  <p>📦 Distribui apenas para: GO</p>
+  <button onclick="abrirModal('Smart Audio', '5562993656084')">Falar com Smart Audio</button>
+</div>
+
+<div class="card">
+  <h2>LUIS PAULO</h2>
+  <p>📍 Paraíso do Tocantins - TO</p>
+  <p>✅ Revende para: TO</p>
+  <p>🚫 Não distribui</p>
+  <button onclick="abrirModal('Luis Paulo', '5563984070007')">Falar com Luis Paulo</button>
+</div>
+
+<div class="modal" id="modalContato" onclick="fecharModal(event)">
+  <div class="modal-content">
+    <h2>Preencha para falar com <span id="contatoNome"></span></h2>
+    <div class="input-wrapper">
+      <span>👤</span>
+      <input type="text" id="nome" placeholder="Seu nome" autocomplete="name">
+    </div>
+    <div class="input-wrapper">
+      <span>🏙️</span>
+      <input type="text" id="cidade" placeholder="Sua cidade" autocomplete="address-level2">
+    </div>
+    <div class="input-wrapper">
+      <span>🗺️</span>
+      <input type="text" id="estado" placeholder="UF" autocomplete="address-level1">
+    </div>
+    <button onclick="enviarContato()">Enviar pelo WhatsApp</button>
+  </div>
+</div>
+
+<p class="footer">Não encontrou sua cidade? <a href="https://wa.me/5599984491491" style="color:#ff6a00; text-decoration:underline;">Fale direto com a JP Audio</a>.</p>
+
+<script>
+  let numeroAtual = "";
+  let nomeContato = "";
+
+  function abrirModal(nome, numero) {
+    document.getElementById('modalContato').style.display = 'flex';
+    document.getElementById('contatoNome').innerText = nome;
+    numeroAtual = numero;
+    nomeContato = nome;
+  }
+
+  function fecharModal(event) {
+    if (event.target.id === 'modalContato') {
+      document.getElementById('modalContato').style.display = 'none';
+    }
+  }
+
+  function enviarContato() {
+    const nome = document.getElementById('nome').value.trim();
+    const cidade = document.getElementById('cidade').value.trim();
+    const estado = document.getElementById('estado').value.trim().toUpperCase();
+
+    if (!nome || !cidade || !estado) {
+      alert('Por favor, preencha todos os campos.');
+      return;
+    }
+
+    const msg = `Ol%C3%A1%2C%20me%20chamo%20${encodeURIComponent(nome)}%20e%20sou%20de%20${encodeURIComponent(cidade)}%20-%20${encodeURIComponent(estado)}.%20Vim%20atrav%C3%A9s%20da%20JP%20Audio%20e%20quero%20falar%20com%20${encodeURIComponent(nomeContato)}.`;
+    const url = `https://wa.me/${numeroAtual}?text=${msg}`;
+    window.open(url, '_blank');
+    document.getElementById('modalContato').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
