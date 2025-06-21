@@ -54,7 +54,6 @@
       transform: scale(1.03);
     }
 
-    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -75,6 +74,7 @@
       text-align: left;
       width: 90%;
       max-width: 400px;
+      position: relative;
     }
 
     .modal-content h2 {
@@ -128,12 +128,12 @@
     <a class="btn-link" href="#">🤝 Seja um Revendedor</a>
   </div>
 
-  <div class="modal" id="modalWhatsapp">
+  <div class="modal" id="modalWhatsapp" onclick="fecharModal(event)">
     <div class="modal-content">
       <h2>Fale com a JP Audio</h2>
-      <input type="text" id="nome" placeholder="Seu nome">
-      <input type="text" id="cidade" placeholder="Sua cidade">
-      <input type="text" id="estado" placeholder="Seu estado (sigla)">
+      <input type="text" id="nome" placeholder="Seu nome" autocomplete="name">
+      <input type="text" id="cidade" placeholder="Sua cidade" autocomplete="address-level2">
+      <input type="text" id="estado" placeholder="Seu estado (sigla)" autocomplete="address-level1">
       <button onclick="enviarWhatsapp()">Enviar pelo WhatsApp</button>
     </div>
   </div>
@@ -143,19 +143,34 @@
       document.getElementById('modalWhatsapp').style.display = 'flex';
     }
 
+    function fecharModal(event) {
+      if (event.target.id === 'modalWhatsapp') {
+        document.getElementById('modalWhatsapp').style.display = 'none';
+      }
+    }
+
     function enviarWhatsapp() {
       const nome = document.getElementById('nome').value.trim();
       const cidade = document.getElementById('cidade').value.trim();
       const estado = document.getElementById('estado').value.trim().toUpperCase();
 
-      if (!nome || !cidade || !estado) {
-        alert('Por favor, preencha todos os campos.');
+      if (!nome) {
+        alert('Por favor, informe seu nome.');
+        return;
+      }
+      if (!cidade) {
+        alert('Informe sua cidade para podermos te direcionar melhor.');
+        return;
+      }
+      if (!estado) {
+        alert('Informe o estado (UF) para completar a mensagem.');
         return;
       }
 
       const msg = `Ol%C3%A1%20%F0%9F%91%8B%2C%20me%20chamo%20${encodeURIComponent(nome)}%20e%20sou%20de%20${encodeURIComponent(cidade)}%20-%20${encodeURIComponent(estado)}.%20Quero%20conhecer%20os%20produtos%20JP%20Audio%20%F0%9F%94%A5`;
       const url = `https://wa.me/5599984491491?text=${msg}`;
       window.open(url, '_blank');
+      document.getElementById('modalWhatsapp').style.display = 'none';
     }
   </script>
 
