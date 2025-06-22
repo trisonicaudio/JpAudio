@@ -24,14 +24,19 @@
       height: 80px;
     }
 
-    .filtro-container {
+    .filtro {
       text-align: center;
-      margin: 1rem auto;
+      margin: 2rem 0 0;
     }
 
-    .filtro-container select {
+    .filtro label {
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+
+    .filtro select {
       padding: 0.5rem;
-      border-radius: 5px;
+      border-radius: 6px;
       border: 1px solid #ccc;
       font-size: 1rem;
     }
@@ -118,6 +123,24 @@
       cursor: pointer;
       font-weight: bold;
     }
+
+    .menu-flutuante {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .menu-flutuante a {
+      display: inline-block;
+      background-color: #000;
+      color: #fff;
+      padding: 0.8rem 1.2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
   </style>
 </head>
 <body>
@@ -127,9 +150,9 @@
     <p>Revendedores oficiais da JP Audio</p>
   </header>
 
-  <div class="filtro-container">
-    <label for="filtroEstado">Filtrar por estado:</label>
-    <select id="filtroEstado" onchange="filtrarRevendedores()">
+  <div class="filtro">
+    <label for="estado">Filtrar por estado:</label>
+    <select id="estado" onchange="filtrarEstado()">
       <option value="todos">Todos</option>
       <option value="MA">Maranhão</option>
       <option value="TO">Tocantins</option>
@@ -140,35 +163,12 @@
   </div>
 
   <section class="revendedores" id="listaRevendedores">
-    <div class="card" data-estados="MA TO PA">
-      <h3>TOURO SOM</h3>
-      <p><strong>Cidade:</strong> Imperatriz - MA</p>
-      <p><strong>Atende:</strong> MA, TO, PA</p>
-      <button onclick="abrirModal('Touro Som', 'https://wa.me/5599991990505?text=')">Entrar em contato</button>
-    </div>
-    <div class="card" data-estados="MA TO PA">
-      <h3>ELETROFONE</h3>
-      <p><strong>Cidade:</strong> Imperatriz - MA</p>
-      <p><strong>Atende:</strong> MA, TO, PA</p>
-      <button onclick="abrirModal('Eletrofone', 'https://wa.me/5599984998764?text=')">Entrar em contato</button>
-    </div>
-    <div class="card" data-estados="GO DF">
-      <h3>SMART AUDIO</h3>
-      <p><strong>Cidade:</strong> Goiânia - GO</p>
-      <p><strong>Atende:</strong> GO, DF</p>
-      <button onclick="abrirModal('Smart Audio', 'https://wa.me/5562993656084?text=')">Entrar em contato</button>
-    </div>
-    <div class="card" data-estados="TO">
-      <h3>LUIS PAULO</h3>
-      <p><strong>Cidade:</strong> Paraíso do Tocantins - TO</p>
-      <p><strong>Atende:</strong> TO</p>
-      <button onclick="abrirModal('Luis Paulo', 'https://wa.me/5563984070007?text=')">Entrar em contato</button>
-    </div>
+    <!-- Cards dos revendedores são inseridos via JavaScript -->
   </section>
 
   <div class="modal" id="popupContato">
     <div class="modal-content">
-      <h2 id="tituloModal">Entrar em contato com</h2>
+      <h2 id="tituloModal">Entrar em contato</h2>
       <input type="text" id="nome" placeholder="Seu nome" />
       <input type="text" id="cidade" placeholder="Cidade" />
       <input type="text" id="uf" placeholder="UF" />
@@ -176,18 +176,53 @@
     </div>
   </div>
 
+  <div class="menu-flutuante">
+    <a href="index.html">&lt; Voltar</a>
+  </div>
+
   <footer>
     <p>© 2025 JP Audio. Todos os direitos reservados.</p>
   </footer>
 
   <script>
+    const revendedores = [
+      { nome: 'TOURO SOM', cidade: 'Imperatriz', estado: 'MA', atende: ['MA', 'TO', 'PA'], link: 'https://wa.me/5599991990505?text=' },
+      { nome: 'ELETROFONE', cidade: 'Imperatriz', estado: 'MA', atende: ['MA', 'TO', 'PA'], link: 'https://wa.me/5599984998764?text=' },
+      { nome: 'SMART AUDIO', cidade: 'Goiânia', estado: 'GO', atende: ['GO', 'DF'], link: 'https://wa.me/5562993656084?text=' },
+      { nome: 'LUIS PAULO', cidade: 'Paraíso do Tocantins', estado: 'TO', atende: ['TO'], link: 'https://wa.me/5563984070007?text=' },
+    ];
+
     let linkBase = '';
     let revendedor = '';
+
+    function renderizarRevendedores(filtro = 'todos') {
+      const container = document.getElementById('listaRevendedores');
+      container.innerHTML = '';
+      const filtrados = filtro === 'todos'
+        ? revendedores
+        : revendedores.filter(r => r.atende.includes(filtro));
+      filtrados.forEach(({ nome, cidade, estado, atende, link }) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <h3>${nome}</h3>
+          <p><strong>Cidade:</strong> ${cidade} - ${estado}</p>
+          <p><strong>Atende:</strong> ${atende.join(', ')}</p>
+          <button onclick="abrirModal('${nome}', '${link}')">Entrar em contato</button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filtrarEstado() {
+      const estado = document.getElementById('estado').value;
+      renderizarRevendedores(estado);
+    }
 
     function abrirModal(nome, link) {
       revendedor = nome;
       linkBase = link;
-      document.getElementById('tituloModal').innerText = `Entrar em contato com ${nome}`;
+      document.getElementById('tituloModal').textContent = `Entrar em contato com ${nome}`;
       document.getElementById('popupContato').style.display = 'block';
     }
 
@@ -195,7 +230,6 @@
       const nome = document.getElementById('nome').value;
       const cidade = document.getElementById('cidade').value;
       const uf = document.getElementById('uf').value;
-
       const msg = `Olá ${revendedor}, me chamo ${nome}, sou da cidade de ${cidade} - ${uf}. Vim através da JP Audio!`;
       const url = `${linkBase}${encodeURIComponent(msg)}`;
       window.open(url, '_blank');
@@ -214,19 +248,7 @@
       }
     });
 
-    function filtrarRevendedores() {
-      const estadoSelecionado = document.getElementById('filtroEstado').value;
-      const cards = document.querySelectorAll('.card');
-
-      cards.forEach(card => {
-        const estados = card.getAttribute('data-estados');
-        if (estadoSelecionado === 'todos' || estados.includes(estadoSelecionado)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
+    renderizarRevendedores();
   </script>
 </body>
 </html>
