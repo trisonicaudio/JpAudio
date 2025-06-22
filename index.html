@@ -126,6 +126,47 @@
       color: #ff6a00;
       text-decoration: underline;
     }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .modal input {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .modal button {
+      background-color: #25d366;
+      color: #fff;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -136,7 +177,7 @@
   <section class="hero">
     <h1>Potência, Fidelidade e Durabilidade</h1>
     <p>Alto-falantes para quem leva som automotivo a sério. Direto da fábrica para lojistas e instaladores.</p>
-    <a href="#contato">Fale com a JP Audio</a>
+    <a href="#contato" onclick="abrirModal()">Fale com a JP Audio</a>
   </section>
 
   <section class="benefits">
@@ -162,7 +203,7 @@
 
   <section class="cta-section" id="contato">
     <h2>Quer revender ou comprar nossos produtos?</h2>
-    <a href="https://wa.me/5599984491491?text=Ol%C3%A1%2C%20quero%20conhecer%20os%20produtos%20JP%20Audio">Entrar em contato</a>
+    <a href="#" onclick="abrirModal()">Entrar em contato</a>
   </section>
 
   <footer>
@@ -173,5 +214,39 @@
       <a href="mailto:contato@jpaudio.com.br">contato@jpaudio.com.br</a>
     </p>
   </footer>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h2>Fale com a JP Audio</h2>
+      <input type="text" id="nome" placeholder="Seu nome">
+      <input type="text" id="cidade" placeholder="Cidade">
+      <input type="text" id="uf" placeholder="UF">
+      <button onclick="enviarWhatsapp()">Chamar no WhatsApp</button>
+    </div>
+  </div>
+
+  <script>
+    function abrirModal() {
+      document.getElementById('modal').style.display = 'block';
+    }
+
+    function enviarWhatsapp() {
+      const nome = document.getElementById('nome').value;
+      const cidade = document.getElementById('cidade').value;
+      const uf = document.getElementById('uf').value;
+
+      const msg = `Olá, meu nome é ${nome}, sou de ${cidade}-${uf} e gostaria de conhecer os produtos JP Audio.`;
+      const url = `https://wa.me/5599984491491?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('modal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
 </body>
 </html>
