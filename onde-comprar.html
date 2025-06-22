@@ -1,269 +1,232 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Onde Comprar - JP Audio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     body {
-      background-color: #f2f2f2;
-      color: #fff;
       font-family: 'Rubik', sans-serif;
       margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    h1 {
-      color: #ff6a00;
-      font-size: 1.8rem;
-      margin-top: 2rem;
-    }
-
-    p.sub {
+      background-color: #f3f3f3;
       color: #333;
-      margin-bottom: 2rem;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    header img {
+      height: 80px;
+    }
+
+    .filtro-container {
+      text-align: center;
+      margin: 1rem auto;
+    }
+
+    .filtro-container select {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .revendedores {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem;
+      gap: 2rem;
     }
 
     .card {
-      background-color: #ffffff;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 1rem;
-      max-width: 500px;
-      width: 90%;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      max-width: 300px;
+      text-align: center;
     }
 
-    .card h2 {
+    .card h3 {
       color: #ff6a00;
       margin-bottom: 0.5rem;
     }
 
     .card p {
-      margin: 0.25rem 0;
-      font-size: 1rem; color: #333;
+      font-size: 0.95rem;
+      margin: 0.5rem 0;
     }
 
     .card button {
       margin-top: 1rem;
-      padding: 0.75rem 1rem;
       background-color: #ff6a00;
-      color: #000;
+      color: white;
       border: none;
-      border-radius: 8px;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
       font-weight: bold;
       cursor: pointer;
-      width: 100%;
     }
 
-    .card button:hover {
-      background-color: #e65c00;
-    }
-
-    .footer {
-      color: #555;
-      margin: 3rem 1rem 1rem;
-      font-size: 0.9rem;
+    footer {
+      background-color: #000;
+      color: #ccc;
       text-align: center;
+      padding: 2rem;
     }
 
     .modal {
       display: none;
       position: fixed;
-      top: 0;
+      z-index: 999;
       left: 0;
+      top: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
+      background: rgba(0, 0, 0, 0.6);
     }
 
     .modal-content {
-      background-color: #fff;
+      background: white;
       padding: 2rem;
-      border-radius: 16px;
-      width: 90%;
-      max-width: 500px;
-      color: #222;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      max-width: 400px;
+      margin: 10% auto;
+      border-radius: 10px;
       text-align: center;
     }
 
-    .modal-content h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .input-wrapper {
-      display: flex;
-      align-items: center;
-      background-color: #f1f1f1;
-      padding: 0.75rem 1rem;
-      border-radius: 10px;
+    .modal input {
+      width: 100%;
+      padding: 0.5rem;
       margin-bottom: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
     }
 
-    .input-wrapper span {
-      margin-right: 0.5rem;
-      font-size: 1.2rem;
-    }
-
-    .input-wrapper input {
-      border: none;
-      background: transparent;
-      outline: none;
-      font-size: 1rem;
-      width: 100%;
-    }
-
-    .modal-content .btn-whatsapp {
+    .modal button {
       background-color: #ff6a00;
-      color: #000;
+      color: #fff;
+      border: none;
       padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: 8px;
+      border-radius: 6px;
+      cursor: pointer;
       font-weight: bold;
-      cursor: pointer;
-      font-size: 1rem;
-      margin-top: 1rem;
-      width: 100%;
-    }
-
-    .modal-content .btn-whatsapp:hover {
-      background-color: #e65c00;
-    }
-
-    .modal-content .btn-voltar {
-      margin-top: 1rem;
-      background: none;
-      border: none;
-      color: #555;
-      text-decoration: underline;
-      cursor: pointer;
-      font-size: 0.95rem;
-    }
-
-    .btn-home {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #333;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 10px #000;
-      z-index: 1001;
-    }
-
-    .btn-home:hover {
-      background-color: #ffa94d;
     }
   </style>
 </head>
 <body>
+  <header>
+    <img src="LOGO-JP-AUDIO-2025.png" alt="JP Audio Logo">
+    <h1>Onde Comprar</h1>
+    <p>Revendedores oficiais da JP Audio</p>
+  </header>
 
-<h1>Onde Comprar JP Audio</h1>
-<p class="sub">Escolha um revendedor autorizado mais próximo e fale direto com quem entende de som automotivo.</p>
-
-<div class="card">
-  <h2>TOURO SOM</h2>
-  <p>📍 Imperatriz - MA</p>
-  <p>✅ Revende para: MA, TO, PA</p>
-  <p>🚫 Não distribui</p>
-  <button onclick="abrirModal('Touro Som', '5599991990505')">Falar com Touro Som</button>
-</div>
-
-<div class="card">
-  <h2>ELETROFONE</h2>
-  <p>📍 Imperatriz - MA</p>
-  <p>✅ Revende para: MA, TO, PA</p>
-  <p>🚫 Não distribui</p>
-  <button onclick="abrirModal('Eletrofone', '5599984998764')">Falar com Eletrofone</button>
-</div>
-
-<div class="card">
-  <h2>SMART AUDIO</h2>
-  <p>📍 Goiânia - GO</p>
-  <p>✅ Revende para: GO, DF, MG</p>
-  <p>📦 Distribui apenas para: GO</p>
-  <button onclick="abrirModal('Smart Audio', '5562993656084')">Falar com Smart Audio</button>
-</div>
-
-<div class="card">
-  <h2>LUIS PAULO</h2>
-  <p>📍 Paraíso do Tocantins - TO</p>
-  <p>✅ Revende para: TO</p>
-  <p>🚫 Não distribui</p>
-  <button onclick="abrirModal('Luis Paulo', '5563984070007')">Falar com Luis Paulo</button>
-</div>
-
-<div class="modal" id="modalContato" onclick="fecharModal(event)">
-  <div class="modal-content">
-    <h2>Preencha para falar com <span id="contatoNome"></span></h2>
-    <div class="input-wrapper">
-      <span>👤</span>
-      <input type="text" id="nome" placeholder="Seu nome" autocomplete="name">
-    </div>
-    <div class="input-wrapper">
-      <span>🏙️</span>
-      <input type="text" id="cidade" placeholder="Sua cidade" autocomplete="address-level2">
-    </div>
-    <div class="input-wrapper">
-      <span>🗺️</span>
-      <input type="text" id="estado" placeholder="UF" autocomplete="address-level1">
-    </div>
-    <button class="btn-whatsapp" onclick="enviarContato()">Chamar no WhatsApp</button>
-    <button class="btn-voltar" onclick="window.location.href='index.html'">Voltar para Página Inicial</button>
+  <div class="filtro-container">
+    <label for="filtroEstado">Filtrar por estado:</label>
+    <select id="filtroEstado" onchange="filtrarRevendedores()">
+      <option value="todos">Todos</option>
+      <option value="MA">Maranhão</option>
+      <option value="TO">Tocantins</option>
+      <option value="PA">Pará</option>
+      <option value="GO">Goiás</option>
+      <option value="DF">Distrito Federal</option>
+    </select>
   </div>
-</div>
 
-<p class="footer">Não encontrou sua cidade? <a href="https://wa.me/5599984491491" style="color:#ff6a00; text-decoration:underline;">Fale direto com a JP Audio</a>.</p>
+  <section class="revendedores" id="listaRevendedores">
+    <div class="card" data-estados="MA TO PA">
+      <h3>TOURO SOM</h3>
+      <p><strong>Cidade:</strong> Imperatriz - MA</p>
+      <p><strong>Atende:</strong> MA, TO, PA</p>
+      <button onclick="abrirModal('Touro Som', 'https://wa.me/5599991990505?text=')">Entrar em contato</button>
+    </div>
+    <div class="card" data-estados="MA TO PA">
+      <h3>ELETROFONE</h3>
+      <p><strong>Cidade:</strong> Imperatriz - MA</p>
+      <p><strong>Atende:</strong> MA, TO, PA</p>
+      <button onclick="abrirModal('Eletrofone', 'https://wa.me/5599984998764?text=')">Entrar em contato</button>
+    </div>
+    <div class="card" data-estados="GO DF">
+      <h3>SMART AUDIO</h3>
+      <p><strong>Cidade:</strong> Goiânia - GO</p>
+      <p><strong>Atende:</strong> GO, DF</p>
+      <button onclick="abrirModal('Smart Audio', 'https://wa.me/5562993656084?text=')">Entrar em contato</button>
+    </div>
+    <div class="card" data-estados="TO">
+      <h3>LUIS PAULO</h3>
+      <p><strong>Cidade:</strong> Paraíso do Tocantins - TO</p>
+      <p><strong>Atende:</strong> TO</p>
+      <button onclick="abrirModal('Luis Paulo', 'https://wa.me/5563984070007?text=')">Entrar em contato</button>
+    </div>
+  </section>
 
-<script>
-  let numeroAtual = "";
-  let nomeContato = "";
+  <div class="modal" id="popupContato">
+    <div class="modal-content">
+      <h2 id="tituloModal">Entrar em contato com</h2>
+      <input type="text" id="nome" placeholder="Seu nome" />
+      <input type="text" id="cidade" placeholder="Cidade" />
+      <input type="text" id="uf" placeholder="UF" />
+      <button id="enviarBtn">Chamar no WhatsApp</button>
+    </div>
+  </div>
 
-  function abrirModal(nome, numero) {
-    document.getElementById('modalContato').style.display = 'flex';
-    document.getElementById('contatoNome').innerText = nome;
-    numeroAtual = numero;
-    nomeContato = nome;
-  }
+  <footer>
+    <p>© 2025 JP Audio. Todos os direitos reservados.</p>
+  </footer>
 
-  function fecharModal(event) {
-    if (event.target.id === 'modalContato') {
-      document.getElementById('modalContato').style.display = 'none';
+  <script>
+    let linkBase = '';
+    let revendedor = '';
+
+    function abrirModal(nome, link) {
+      revendedor = nome;
+      linkBase = link;
+      document.getElementById('tituloModal').innerText = `Entrar em contato com ${nome}`;
+      document.getElementById('popupContato').style.display = 'block';
     }
-  }
 
-  function enviarContato() {
-    const nome = document.getElementById('nome').value.trim();
-    const cidade = document.getElementById('cidade').value.trim();
-    const estado = document.getElementById('estado').value.trim().toUpperCase();
+    document.getElementById('enviarBtn').addEventListener('click', function () {
+      const nome = document.getElementById('nome').value;
+      const cidade = document.getElementById('cidade').value;
+      const uf = document.getElementById('uf').value;
 
-    if (!nome || !cidade || !estado) {
-      alert('Por favor, preencha todos os campos.');
-      return;
+      const msg = `Olá ${revendedor}, me chamo ${nome}, sou da cidade de ${cidade} - ${uf}. Vim através da JP Audio!`;
+      const url = `${linkBase}${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+    });
+
+    window.addEventListener('click', function (e) {
+      const modal = document.getElementById('popupContato');
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    window.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        document.getElementById('popupContato').style.display = 'none';
+      }
+    });
+
+    function filtrarRevendedores() {
+      const estadoSelecionado = document.getElementById('filtroEstado').value;
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        const estados = card.getAttribute('data-estados');
+        if (estadoSelecionado === 'todos' || estados.includes(estadoSelecionado)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
     }
-
-    const msg = `Ol%C3%A1%2C%20me%20chamo%20${encodeURIComponent(nome)}%20e%20sou%20de%20${encodeURIComponent(cidade)}%20-%20${encodeURIComponent(estado)}.%20Vim%20atrav%C3%A9s%20da%20JP%20Audio%20e%20quero%20falar%20com%20${encodeURIComponent(nomeContato)}.`;
-    const url = `https://wa.me/${numeroAtual}?text=${msg}`;
-    window.open(url, '_blank');
-    document.getElementById('modalContato').style.display = 'none';
-  }
-</script>
-
-<a href="index.html" class="btn-home" title="Voltar para Início">
-  <img src="botao-home.png" alt="Início" style="width: 24px; height: 24px;">
-</a>
+  </script>
 </body>
 </html>
