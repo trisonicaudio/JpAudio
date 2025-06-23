@@ -3,85 +3,72 @@
   color: #333;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* <-- isso que separa logo à esquerda e menu à direita */
-  padding: 1.5rem 2rem;
-  flex-wrap: wrap;
-  border-bottom: 4px solid #333;
+  justify-content: space-between;
+  padding: 1rem 2rem;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
+  border-bottom: 4px solid #333;
+  box-sizing: border-box;
 }
 
-.navbar-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
+.logo {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
 }
 
 .logo img {
-  height: 50px;
+  height: 48px;
+  display: block;
+  object-fit: contain;
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
+  align-items: center;
   gap: 2rem;
+  list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .nav-links li a {
-  color: #222;
   text-decoration: none;
-  font-weight: 700;
+  color: #000;
+  font-weight: bold;
   font-size: 1rem;
-  transition: color 0.3s ease;
-}
-
-.nav-links li a:hover {
-  color: #ff6a00;
+  white-space: nowrap;
 }
 
 .hamburger {
   display: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: #222;
 }
 
-/* RESPONSIVO */
+/* MOBILE */
 @media (max-width: 768px) {
   .hamburger {
     display: block;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #000;
   }
 
   .nav-links {
     display: none;
-    width: 100%;
     flex-direction: column;
     background-color: #fff;
-    margin-top: 1rem;
-    padding: 0.5rem 0;
-    border-top: 1px solid #ddd;
-  }
-
-  .nav-links li {
-    text-align: center;
-    padding: 1rem 0;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 1rem;
+    border-radius: 12px;
   }
 
   .nav-links.active {
     display: flex;
-  }
-
-  .navbar-container {
-    flex-direction: column;
-    align-items: flex-start;
   }
 }
