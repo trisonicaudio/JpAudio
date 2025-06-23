@@ -78,13 +78,13 @@
       color: #666;
     }
 
-    .produtos-destaque {
-      background-color: #fff;
+    .produtos-destaque-section {
+      background-color: #fff9f3;
       padding: 3rem 1rem;
       text-align: center;
     }
 
-    .produtos-destaque h2 {
+    .produtos-destaque-section h2 {
       font-size: 1.8rem;
       color: #ff6a00;
       margin-bottom: 2rem;
@@ -98,7 +98,7 @@
     }
 
     .produto-card {
-      background: #f9f9f9;
+      background: #fff;
       border-radius: 10px;
       padding: 1rem;
       width: 260px;
@@ -206,45 +206,17 @@
       transform: scale(1.1);
     }
 
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-
-    .modal-content {
-      background-color: #fff;
-      margin: 10% auto;
-      padding: 2rem;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 400px;
-      text-align: center;
-    }
-
-    .modal input {
-      width: 100%;
-      margin-bottom: 1rem;
-      padding: 0.8rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1rem;
-    }
-
-    .modal button {
-      background-color: #25d366;
-      color: #fff;
-      padding: 0.8rem 2rem;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .hero a {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
@@ -274,7 +246,7 @@
     </div>
   </section>
 
-  <section class="produtos-destaque">
+  <section class="produtos-destaque-section">
     <h2>🔥 Produtos em Destaque</h2>
     <div class="grid-produtos">
       <div class="produto-card">
@@ -282,7 +254,7 @@
         <h3>Corneta JP1212</h3>
         <p>Compacta, leve e feita para som interno Trio Goiano.</p>
         <strong>R$ 89,90</strong>
-        <a href="jp1212.html">Ver mais</a>
+        <a href="landpage-corneta-jp1212.html">Ver mais</a>
       </div>
     </div>
   </section>
@@ -308,39 +280,5 @@
       </a>
     </div>
   </footer>
-
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <h2>Fale com a JP Audio</h2>
-      <input type="text" id="nome" placeholder="Seu nome">
-      <input type="text" id="cidade" placeholder="Cidade">
-      <input type="text" id="uf" placeholder="UF">
-      <button onclick="enviarWhatsapp()">Chamar no WhatsApp</button>
-    </div>
-  </div>
-
-  <script>
-    function abrirModal() {
-      document.getElementById('modal').style.display = 'block';
-    }
-
-    function enviarWhatsapp() {
-      const nome = document.getElementById('nome').value;
-      const cidade = document.getElementById('cidade').value;
-      const uf = document.getElementById('uf').value;
-
-      const msg = `Olá, meu nome é ${nome}, sou de ${cidade}-${uf} e gostaria de conhecer os produtos JP Audio.`;
-      const url = `https://wa.me/5599984491491?text=${encodeURIComponent(msg)}`;
-      window.open(url, '_blank');
-      document.getElementById('modal').style.display = 'none';
-    }
-
-    window.onclick = function(event) {
-      const modal = document.getElementById('modal');
-      if (event.target === modal) {
-        modal.style.display = 'none';
-      }
-    }
-  </script>
 </body>
 </html>
