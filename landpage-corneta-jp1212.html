@@ -4,10 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- 
+  <title>JP1212 | Corneta em Alumínio p/ Driver</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style-menu.css" />
-   <title>JP1212 | Corneta em Alumínio p/ Driver</title>
+  <link rel="stylesheet" href="style-menu.css">
   <style>
     * {
       margin: 0;
@@ -143,8 +142,11 @@
 </head>
 
 <body>
-  <!-- Menu carregado automaticamente -->
   <div id="menu-placeholder"></div>
+
+  <header style="background: #000; color: #fff; text-align: center; padding: 1.5rem 2rem;">
+    <h1 style="font-size: 1.9rem; font-weight: 800;">JP1212 | Corneta em Alumínio p/ Driver – Clareza e Presença no Trio Goiano</h1>
+  </header>
 
   <section class="hero">
     <img src="img/C1212TGR .jpeg" alt="Corneta JP1212" />
@@ -194,7 +196,6 @@
     © JP Audio - Potência, fidelidade e durabilidade no som automotivo
   </footer>
 
-  <!-- POPUP MODAL -->
   <div id="popup" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;z-index:1000;">
     <div style="background:#fff;padding:2rem;border-radius:12px;max-width:400px;width:90%;position:relative;">
       <h2 style="margin-bottom:1rem;color:#111;">Solicitar Orçamento</h2>
@@ -211,17 +212,13 @@
     </div>
   </div>
 
-  <!-- Script para carregar menu externo -->
   <script>
     fetch("menu.html")
-      .then(res => res.text())
+      .then(response => response.text())
       .then(data => {
         document.getElementById("menu-placeholder").innerHTML = data;
       });
-  </script>
 
-  <!-- Script do WhatsApp -->
-  <script>
     function montarMensagem() {
       const nome = document.getElementById('nome').value.trim();
       const cep = document.getElementById('cep').value.trim();
@@ -247,7 +244,6 @@ Aguardo retorno. Obrigado!`;
       return false;
     }
   </script>
-
 </body>
 
 </html>
