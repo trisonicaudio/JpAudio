@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JP Audio - Qualidade em Som Automotivo</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="menu-style.css"> <!-- CSS EXTERNO PARA O MENU -->
   <style>
     html {
       font-size: 100%;
@@ -16,6 +15,44 @@
       font-family: 'Rubik', sans-serif;
       background-color: #f3f3f3;
       color: #333;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .menu-container img {
+      height: 60px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .menu a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .menu a:hover {
+      color: #ff6a00;
     }
 
     .hero {
@@ -207,12 +244,30 @@
         padding: 0.8rem 1.5rem;
         font-size: 0.95rem;
       }
+      .menu {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-end;
+      }
+      .menu-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <img src="LOGO-JP-AUDIO-2025.png" alt="JP Audio Logo">
+    <div class="menu-container">
+      <img src="LOGO-JP-AUDIO-2025.png" alt="JP Audio Logo">
+      <nav class="menu">
+        <a href="index.html">Início</a>
+        <a href="#produtos-destaque">Produtos</a>
+        <a href="onde-comprar.html">Revendedores</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
   </header>
 
   <section class="hero">
@@ -236,7 +291,7 @@
     </div>
   </section>
 
-  <section class="produtos-destaque-section">
+  <section class="produtos-destaque-section" id="produtos-destaque">
     <h2>🔥 Produtos em Destaque</h2>
     <div class="grid-produtos">
       <div class="produto-card">
@@ -270,5 +325,6 @@
       </a>
     </div>
   </footer>
+
 </body>
 </html>
