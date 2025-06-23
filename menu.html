@@ -1,78 +1,14 @@
 <nav class="navbar">
-  <div class="logo">
-    <a href="index.html">
-      <img src="img/logo-jpaudio.png" alt="JP Audio" />
+  <div class="menu-container">
+    <a href="index.html" class="logo">
+      <img src="img/logo-jpaudio.png" alt="JP Audio Logo" />
     </a>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="#produtos-destaque">Produtos</a></li>
+      <li><a href="onde-comprar.html">Onde Comprar</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
   </div>
-  <div class="hamburger" onclick="toggleMenu()">☰</div>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="index.html">Início</a></li>
-    <li><a href="#produtos-destaque">Produtos</a></li>
-    <li><a href="onde-comprar.html">Onde Comprar</a></li>
-    <li><a href="#contato">Contato</a></li>
-  </ul>
 </nav>
-
-<style>
-  .navbar {
-    background-color: #000;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 2rem;
-    flex-wrap: wrap;
-  }
-
-  .logo img {
-    height: 48px;
-  }
-
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-  }
-
-  .nav-links li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  .hamburger {
-    display: none;
-    font-size: 2rem;
-    cursor: pointer;
-  }
-
-  @media (max-width: 768px) {
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      background-color: #000;
-      padding-top: 1rem;
-    }
-
-    .nav-links li {
-      padding: 0.8rem;
-      text-align: center;
-    }
-
-    .hamburger {
-      display: block;
-    }
-
-    .nav-links.active {
-      display: flex;
-    }
-  }
-</style>
-
-<script>
-  function toggleMenu() {
-    const nav = document.getElementById("navLinks");
-    nav.classList.toggle("active");
-  }
-</script>
