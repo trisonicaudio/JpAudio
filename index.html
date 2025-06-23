@@ -25,36 +25,6 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .menu-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .menu-container img {
-      height: 60px;
-    }
-
-    .menu {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .menu a {
-      color: #333;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    .menu a:hover {
-      color: #ff6a00;
-    }
-
     .hero {
       background-color: #ffffff;
       padding: 4rem 2rem;
@@ -237,38 +207,22 @@
       .hero h1 {
         font-size: 1.6rem;
       }
+
       .hero p {
         font-size: 1rem;
       }
+
       .hero a {
         padding: 0.8rem 1.5rem;
         font-size: 0.95rem;
-      }
-      .menu {
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: flex-end;
-      }
-      .menu-container {
-        flex-direction: column;
-        align-items: flex-start;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="menu-container">
-      <img src="LOGO-JP-AUDIO-2025.png" alt="JP Audio Logo">
-      <nav class="menu">
-        <a href="index.html">Início</a>
-        <a href="#produtos-destaque">Produtos</a>
-        <a href="onde-comprar.html">Revendedores</a>
-        <a href="#contato">Contato</a>
-      </nav>
-    </div>
-  </header>
+  <!-- Menu será carregado aqui -->
+  <div id="menu-placeholder"></div>
 
   <section class="hero">
     <h1>Potência, Fidelidade e Durabilidade</h1>
@@ -325,6 +279,15 @@
       </a>
     </div>
   </footer>
+
+  <!-- JavaScript para carregar o menu -->
+  <script>
+    fetch("menu.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("menu-placeholder").innerHTML = data;
+      });
+  </script>
 
 </body>
 </html>
