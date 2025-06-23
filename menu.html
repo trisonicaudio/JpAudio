@@ -1,15 +1,13 @@
 <nav class="navbar">
   <div class="logo">
-    <a href="index.html">
-      <img src="LOGO-JP-AUDIO-2025.png" alt="JP Audio" />
-    </a>
+    <img src="LOGO-JP-AUDIO-2025.png" alt="JP Audio Logo" />
   </div>
   <div class="hamburger" onclick="toggleMenu()">☰</div>
-  <ul class="nav-links" id="navLinks">
+  <ul id="navLinks" class="nav-links">
     <li><a href="index.html">Início</a></li>
-    <li><a href="index.html#produtos-destaque">Produtos</a></li>
+    <li><a href="produtos.html">Produtos</a></li>
     <li><a href="onde-comprar.html">Onde Comprar</a></li>
-    <li><a href="index.html#contato">Contato</a></li>
+    <li><a href="contato.html">Contato</a></li>
   </ul>
 </nav>
 
@@ -18,7 +16,6 @@
     document.getElementById("navLinks").classList.toggle("active");
   }
 
-  // Fecha o menu ao clicar em qualquer link (mobile)
   document.addEventListener("DOMContentLoaded", function () {
     const navLinks = document.getElementById("navLinks");
     const links = navLinks.querySelectorAll("a");
