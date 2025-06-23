@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corneta JP1212 - JP Audio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Rubik', sans-serif; background: #0e0e0e; color: #fff; line-height: 1.6; }
+    header, footer { background: #111; padding: 2rem 1rem; text-align: center; }
+    header h1 { font-size: 2rem; color: #FFA500; }
+    .hero { text-align: center; padding: 3rem 1rem; background: linear-gradient(to bottom, #1a1a1a, #0e0e0e); }
+    .hero img { max-width: 320px; border-radius: 12px; margin-bottom: 1rem; }
+    .hero h2 { font-size: 1.5rem; margin-bottom: .5rem; }
+    .hero p { font-size: 1rem; color: #ccc; }
+    .btn-main { background: #FFA500; color: #000; padding: .8rem 1.5rem; border: none; border-radius: 5px; font-weight: bold; margin-top: 1.5rem; cursor: pointer; transition: 0.3s; }
+    .btn-main:hover { background: #fff; }
+    .section { padding: 3rem 1rem; max-width: 960px; margin: auto; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .benefit { background: #1a1a1a; border-radius: 10px; padding: 1.5rem; text-align: center; }
+    .benefit h3 { color: #FFA500; margin-bottom: .5rem; }
+    .gallery img { width: 100%; border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; color: #ddd; margin-top: 1rem; }
+    td { padding: .6rem; border-bottom: 1px solid #333; }
+    .cta { text-align: center; margin-top: 2rem; }
+    .popup-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); justify-content: center; align-items: center; z-index: 1000; }
+    .popup { background: #1a1a1a; padding: 2rem; border-radius: 10px; max-width: 400px; width: 90%; }
+    .popup h3 { margin-bottom: 1rem; color: #FFA500; }
+    .popup input { width: 100%; margin-bottom: 1rem; padding: .8rem; border: none; border-radius: 5px; }
+    .popup .btn-group { display: flex; flex-direction: column; gap: 1rem; }
+    .popup button { background: #FFA500; color: #000; font-weight: bold; padding: .8rem; border: none; border-radius: 5px; cursor: pointer; }
+    .close-btn { color: #fff; float: right; font-size: 1.2rem; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Corneta JP1212</h1>
+    <p>Som interno com presença de verdade</p>
+  </header>
+
+  <section class="hero">
+    <img src="C1212TGR.jpeg" alt="Corneta JP1212">
+    <h2>A voz que atravessa a parede de médios</h2>
+    <p>Compacta, robusta e feita pra destacar sua voz no trio interno. Compatível com qualquer driver de rosca.</p>
+    <a href="https://produto.mercadolivre.com.br/MLB-5444785574-corneta-aluminio-jp-audio-p-driver-trio-goiano-interno-_JM" target="_blank"><button class="btn-main">Compre agora no Mercado Livre - R$ 89,90</button></a>
+    <div class="cta">
+      <p>Ou monte seu orçamento personalizado:</p>
+      <button class="btn-main" onclick="openPopup()">Quero um orçamento</button>
+    </div>
+  </section>
+
+  <section class="section grid">
+    <div class="benefit">
+      <h3>🧱 Alumínio Premium</h3>
+      <p>Durabilidade e rigidez no seu sistema.</p>
+    </div>
+    <div class="benefit">
+      <h3>🎯 Encaixe Perfeito</h3>
+      <p>Fixação padrão para drivers de rosca 1".</p>
+    </div>
+    <div class="benefit">
+      <h3>⚒️ Acabamento de Presença</h3>
+      <p>Pintura preta + diamantado frontal.</p>
+    </div>
+    <div class="benefit">
+      <h3>🚚 Direto da Fábrica</h3>
+      <p>Com garantia, suporte e envio rápido.</p>
+    </div>
+  </section>
+
+  <section class="section gallery grid">
+    <img src="C1212TGR FR.jpeg" alt="Vista frontal">
+    <img src="C1212TGR LD.jpeg" alt="Vista lateral">
+    <img src="C1212TGR LD2.jpeg" alt="Vista lateral 2">
+    <img src="C1212TGR + driver .jpeg" alt="Montada no driver">
+    <img src="DP100 TG2.jpeg" alt="Driver compatível">
+  </section>
+
+  <section class="section">
+    <h2>Especificações Técnicas</h2>
+    <table>
+      <tr><td><strong>Modelo:</strong></td><td>JP1212</td></tr>
+      <tr><td><strong>Material:</strong></td><td>Alumínio fundido</td></tr>
+      <tr><td><strong>Compatibilidade:</strong></td><td>Driver rosca 1"</td></tr>
+      <tr><td><strong>Acabamento:</strong></td><td>Preto fosco + boca diamantada</td></tr>
+      <tr><td><strong>Uso:</strong></td><td>Som interno - Trio Goiano</td></tr>
+    </table>
+  </section>
+
+  <div class="popup-overlay" id="popup">
+    <div class="popup">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h3>Monte seu orçamento</h3>
+      <input type="text" placeholder="Seu nome" />
+      <input type="text" placeholder="CEP" />
+      <input type="number" placeholder="Quantidade desejada" />
+      <div class="btn-group">
+        <a href="https://produto.mercadolivre.com.br/MLB-5444785574" target="_blank"><button>Ir para o Mercado Livre</button></a>
+        <a href="https://wa.me/5599984491491?text=Olá,%20quero%20um%20orçamento%20da%20corneta%20JP1212%20para%20som%20interno." target="_blank"><button>Falar direto no WhatsApp</button></a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>JP Audio © Todos os direitos reservados</p>
+  </footer>
+
+  <script>
+    function openPopup() {
+      document.getElementById('popup').style.display = 'flex';
+    }
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
