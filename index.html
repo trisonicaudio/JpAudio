@@ -1,123 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JP Audio - Qualidade em Som Automotivo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    html {
-      font-size: 100%;
-    }
 
-    body {
-      margin: 0;
-      font-family: 'Rubik', sans-serif;
-      background-color: #f3f3f3;
-      color: #333;
-    }
-
-    /* ESTILO DO MENU */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background-color: #fff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .menu-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .menu-container img {
-      height: 60px;
-    }
-
-    .menu {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .menu a {
-      color: #333;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    .menu a:hover {
-      color: #ff6a00;
-    }
-
-    @media (max-width: 768px) {
-      .menu {
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: flex-end;
-      }
-
-      .menu-container {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    /* OUTRAS SEÇÕES (exemplo) */
-    .hero {
-      background-color: #ffffff;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .hero h1 {
-      color: #ff6a00;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-    }
-
-    .hero a {
-      display: inline-block;
-      background-color: #ff6a00;
-      color: #fff;
-      font-weight: bold;
-      padding: 1rem 2rem;
-      text-decoration: none;
-      border-radius: 8px;
-    }
-  </style>
+  <!-- Fonte e Estilo -->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- O menu será carregado automaticamente aqui -->
+  <!-- Menu externo será inserido aqui -->
   <div id="menu-placeholder"></div>
 
+  <!-- Hero Section -->
   <section class="hero">
     <h1>Potência, Fidelidade e Durabilidade</h1>
     <p>Alto-falantes para quem leva som automotivo a sério. Direto da fábrica para lojistas e instaladores.</p>
     <a href="#contato">Fale com a JP Audio</a>
   </section>
 
-  <!-- Outras seções continuam aqui... -->
+  <!-- Outras seções da página -->
+  <!-- Exemplo de próxima seção -->
+  <section class="benefits">
+    <div class="benefit">
+      <h2>🔊 Potência</h2>
+      <p>Projetado para entregar pressão sonora de verdade.</p>
+    </div>
+    <div class="benefit">
+      <h2>🎧 Fidelidade</h2>
+      <p>Qualidade de áudio que impressiona do grave ao agudo.</p>
+    </div>
+    <div class="benefit">
+      <h2>🛠️ Durabilidade</h2>
+      <p>Construído com materiais premium e controle de qualidade.</p>
+    </div>
+  </section>
 
+  <!-- Rodapé (se desejar, pode colocar aqui ou via outro include) -->
+
+  <!-- Script para carregar o menu automaticamente -->
   <script>
-    // Carrega o menu externo e insere no topo da página
     fetch("menu.html")
       .then(response => response.text())
       .then(data => {
         document.getElementById("menu-placeholder").innerHTML = data;
       });
   </script>
+
 </body>
 </html>
