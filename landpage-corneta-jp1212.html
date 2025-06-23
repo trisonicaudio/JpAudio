@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JP1212 | Corneta em Alumínio p/ Driver</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style-menu.css" />
   <style>
     * {
       margin: 0;
@@ -18,18 +19,6 @@
       background-color: #f9f9f9;
       color: #111;
       line-height: 1.6;
-    }
-
-    header {
-      background-color: #000;
-      color: #fff;
-      text-align: center;
-      padding: 1rem 2rem;
-    }
-
-    header h1 {
-      font-size: 2rem;
-      font-weight: 800;
     }
 
     .hero {
@@ -153,9 +142,8 @@
 </head>
 
 <body>
-  <header>
-    <h1>JP1212 | Corneta em Alumínio p/ Driver – Clareza e Presença no Trio Goiano</h1>
-  </header>
+  <!-- Menu carregado automaticamente -->
+  <div id="menu-placeholder"></div>
 
   <section class="hero">
     <img src="img/C1212TGR .jpeg" alt="Corneta JP1212" />
@@ -222,6 +210,16 @@
     </div>
   </div>
 
+  <!-- Script para carregar menu externo -->
+  <script>
+    fetch("menu.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("menu-placeholder").innerHTML = data;
+      });
+  </script>
+
+  <!-- Script do WhatsApp -->
   <script>
     function montarMensagem() {
       const nome = document.getElementById('nome').value.trim();
@@ -248,6 +246,7 @@ Aguardo retorno. Obrigado!`;
       return false;
     }
   </script>
+
 </body>
 
 </html>
