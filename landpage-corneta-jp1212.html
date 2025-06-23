@@ -39,6 +39,7 @@
       padding: 2rem;
       background: linear-gradient(to bottom, #111, #222);
       color: #fff;
+      text-align: center;
     }
 
     .hero img {
@@ -54,7 +55,6 @@
 
     .hero p {
       max-width: 500px;
-      text-align: center;
       opacity: 0.9;
     }
 
@@ -122,6 +122,21 @@
       padding: 1rem;
       font-size: 0.9rem;
     }
+
+    .proof {
+      background: #fff;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .proof h3 {
+      color: #111;
+      margin-bottom: 0.5rem;
+    }
+
+    .proof p {
+      font-size: 0.95rem;
+    }
   </style>
 </head>
 
@@ -131,9 +146,9 @@
   </header>
 
   <section class="hero">
-    <img src="img/C1212TGR .jpeg" alt="Corneta JP1212" />
-    <h2>Feita pra destacar sua voz no Trio Goiano</h2>
-    <p>Alta fidelidade, acabamento premium e presença sonora impressionante. A escolha certa para quem leva o som a sério.</p>
+    <img src="img/C1212TGR.jpeg" alt="Corneta JP1212" />
+    <h2>Sua voz na frente, com clareza, projeção e estilo</h2>
+    <p>A corneta feita para quem leva o Trio Goiano a sério.</p>
   </section>
 
   <section class="features">
@@ -152,10 +167,10 @@
   </section>
 
   <section class="buy-section">
-    <h2>Garanta a sua por R$ 89,90</h2>
-    <p>Compre agora pelo Mercado Livre ou solicite um orçamento personalizado direto pelo WhatsApp.</p>
-    <a href="https://produto.mercadolivre.com.br/MLB-5444785574-corneta-aluminio-jp-audio-p-driver-trio-goiano-interno-_JM" target="_blank">Comprar pelo Mercado Livre</a>
-    <a href="#popup" onclick="document.getElementById('popup').style.display='flex'">Solicitar Orçamento no WhatsApp</a>
+    <h2>Garanta a sua hoje por apenas R$ 89,90</h2>
+    <p>Compre agora pelo Mercado Livre ou solicite um orçamento direto pelo WhatsApp.</p>
+    <a href="https://produto.mercadolivre.com.br/MLB-5444785574-corneta-aluminio-jp-audio-p-driver-trio-goiano-interno-_JM" target="_blank">Comprar agora no Mercado Livre 🛒</a>
+    <a href="#popup" onclick="document.getElementById('popup').style.display='flex'">Quero um orçamento no WhatsApp 📲</a>
   </section>
 
   <section class="gallery">
@@ -163,6 +178,12 @@
     <img src="img/C1212TGR LD.jpeg" alt="Vista lateral direita" />
     <img src="img/C1212TGR LD2.jpeg" alt="Vista lateral esquerda" />
     <img src="img/C1212TGR-driver.jpeg" alt="Com driver montado" />
+  </section>
+
+  <section class="proof">
+    <h3>🛡️ Compra segura, direto da fábrica</h3>
+    <p>Produto com garantia de fabricação e suporte técnico da JP Audio.<br />
+      </p>
   </section>
 
   <footer>
@@ -198,10 +219,10 @@
         return false;
       }
 
-      const msg = `Olá, meu nome é ${nome}.
-CEP: ${cep}
-Produto: Corneta Alumínio JP1212
-Quantidade desejada: ${qtd}
+      const msg = `Olá 👋🏼, meu nome é ${nome}.
+📍 CEP: ${cep}
+📄 Produto: Corneta em Alumínio JP1212 P/ Driver com rosca
+📦 Quantidade desejada: ${qtd}
 
 Tenho interesse nesse item e gostaria de receber uma sugestão de orçamento.
 Aguardo retorno. Obrigado!`;
