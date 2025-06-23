@@ -113,6 +113,15 @@
     .gallery img {
       width: 220px;
       border-radius: 8px;
+      cursor: zoom-in;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.5);
+      z-index: 10;
+      position: relative;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
     }
 
     footer {
@@ -137,36 +146,68 @@
     .proof p {
       font-size: 0.95rem;
     }
+
+    /* Modal de imagem */
+    #imgModal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #imgModal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+    }
+
+    #imgModal span {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .gallery img:hover {
+        transform: none;
+        box-shadow: none;
+      }
+    }
   </style>
 </head>
 
 <body>
   <header>
-    <h1>JP1212 | Corneta em Alumínio p/ Driver - Clareza e Presença no Trio Goiano</h1>
+    <h1>JP1212 | Corneta em Alumínio p/ Driver Rosca 1” – Clareza e Presença no Trio Goiano</h1>
   </header>
 
   <section class="hero">
     <img src="img/C1212TGR .jpeg" alt="Corneta JP1212" />
-    <h2>Sua voz na frente</h2>
+    <h2>Sua voz na frente, com clareza, projeção e estilo</h2>
     <p>A corneta feita para quem leva o Trio Goiano a sério.</p>
   </section>
 
   <section class="features">
     <div class="feature">
-      <h3>🧩 Compacta e Pronta para Qualquer Projeto</h3>
-      <p>Com frente de apenas 12x12 cm, é perfeita para forros de porta e paredinhas de som interno onde cornetas grandes não cabem.</p>
+      <h3>✅ Compatibilidade</h3>
+      <p>Feita para drivers com rosca padrão. Instalação rápida e universal.</p>
     </div>
     <div class="feature">
-      <h3>✅ Compatibilidade Total</h3>
-      <p>Feita para drivers com rosca padrão de 1". Instalação rápida, sem adaptações.</p>
+      <h3>🛠️ Alumínio Fundido</h3>
+      <p>Alta resistência, pintura eletrostática e acabamento diamantado.</p>
     </div>
     <div class="feature">
-      <h3>🛠️ Alumínio Fundido com Acabamento Premium</h3>
-      <p>Produzida com alumínio de alta pureza, acabamento diamantado e pintura eletrostática — mais durabilidade e presença estética.</p>
-    </div>
-    <div class="feature">
-      <h3>🔊 Projeção Vocal Focada</h3>
-      <p>Direcionamento preciso para destacar a voz, mesmo em sons internos potentes e ambientes fechados.</p>
+      <h3>🔊 Foco na Voz</h3>
+      <p>Projetada para destacar a voz mesmo em sons internos potentes.</p>
     </div>
   </section>
 
@@ -183,6 +224,11 @@
     <img src="img/C1212TGR LD2.jpeg" alt="Vista lateral esquerda" />
     <img src="img/C1212TGR-driver.jpeg" alt="Com driver montado" />
   </section>
+
+  <div id="imgModal">
+    <img id="modalImg" src="" alt="Imagem ampliada" />
+    <span onclick="document.getElementById('imgModal').style.display='none'">&times;</span>
+  </div>
 
   <section class="proof">
     <h3>🛡️ Compra segura, direto da fábrica</h3>
@@ -235,6 +281,14 @@ Aguardo retorno. Obrigado!`;
       document.getElementById('popup').style.display = 'none';
       return false;
     }
+
+    // Modal de imagem no mobile
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        document.getElementById('modalImg').src = img.src;
+        document.getElementById('imgModal').style.display = 'flex';
+      });
+    });
   </script>
 </body>
 
