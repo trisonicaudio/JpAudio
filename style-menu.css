@@ -1,6 +1,15 @@
 .navbar {
   background-color: #fff;
-  border-bottom: 1px solid #ddd;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* <-- isso que separa logo à esquerda e menu à direita */
+  padding: 1.5rem 2rem;
+  flex-wrap: wrap;
+  border-bottom: 4px solid #333;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   z-index: 1000;
 }
