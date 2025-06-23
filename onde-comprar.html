@@ -98,30 +98,71 @@
     }
 
     .modal-content {
-      background: white;
+      background: #fff;
       padding: 2rem;
       max-width: 400px;
       margin: 10% auto;
-      border-radius: 10px;
+      border-radius: 12px;
       text-align: center;
+      position: relative;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      animation: fadeIn 0.3s ease-in-out;
     }
 
-    .modal input {
-      width: 100%;
-      padding: 0.5rem;
+    .modal-content h2 {
+      color: #ff6a00;
       margin-bottom: 1rem;
-      border-radius: 5px;
-      border: 1px solid #ccc;
     }
 
-    .modal button {
-      background-color: #ff6a00;
+    .modal-content label {
+      display: block;
+      margin: 0.5rem 0 0.2rem;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .modal-content button {
+      background-color: #25d366;
       color: #fff;
       border: none;
-      padding: 0.8rem 1.5rem;
-      border-radius: 6px;
-      cursor: pointer;
+      padding: 0.9rem 1.8rem;
+      border-radius: 8px;
+      font-size: 1rem;
       font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .modal-content button:hover {
+      background-color: #1ebe5d;
+    }
+
+    .fechar-modal {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #ff6a00;
+      cursor: pointer;
+    }
+
+    .fechar-modal:hover {
+      color: #000;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .menu-flutuante {
@@ -140,6 +181,25 @@
       text-decoration: none;
       font-weight: bold;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 600px) {
+      .modal-content {
+        width: 90%;
+        margin-top: 30%;
+        padding: 1.5rem;
+      }
+
+      .modal-content input,
+      .modal-content button {
+        font-size: 1rem;
+      }
+
+      .fechar-modal {
+        font-size: 24px;
+        top: 5px;
+        right: 10px;
+      }
     }
   </style>
 </head>
@@ -168,11 +228,15 @@
 
   <div class="modal" id="popupContato">
     <div class="modal-content">
-      <h2 id="tituloModal">Entrar em contato</h2>
-      <input type="text" id="nome" placeholder="Seu nome" />
-      <input type="text" id="cidade" placeholder="Cidade" />
-      <input type="text" id="uf" placeholder="UF" />
-      <button id="enviarBtn">Chamar no WhatsApp</button>
+      <span class="fechar-modal" onclick="fecharModal()">×</span>
+      <h2 id="tituloModal">Fale direto com o revendedor JP Audio</h2>
+      <label for="nome">Seu nome</label>
+      <input type="text" id="nome" placeholder="Digite seu nome" />
+      <label for="cidade">Cidade</label>
+      <input type="text" id="cidade" placeholder="Digite sua cidade" />
+      <label for="uf">UF</label>
+      <input type="text" id="uf" placeholder="UF" maxlength="2" />
+      <button id="enviarBtn">Quero atendimento no WhatsApp</button>
     </div>
   </div>
 
@@ -222,29 +286,49 @@
     function abrirModal(nome, link) {
       revendedor = nome;
       linkBase = link;
-      document.getElementById('tituloModal').textContent = `Entrar em contato com ${nome}`;
+      document.getElementById('tituloModal').textContent = `Fale direto com ${nome}`;
       document.getElementById('popupContato').style.display = 'block';
     }
 
+    function fecharModal() {
+      document.getElementById('popupContato').style.display = 'none';
+    }
+
     document.getElementById('enviarBtn').addEventListener('click', function () {
-      const nome = document.getElementById('nome').value;
-      const cidade = document.getElementById('cidade').value;
-      const uf = document.getElementById('uf').value;
+      const nome = document.getElementById('nome').value.trim();
+      const cidade = document.getElementById('cidade').value.trim();
+      const uf = document.getElementById('uf').value.trim().toUpperCase();
+
+      if (!nome || !cidade || !uf) {
+        alert('Por favor, preencha todos os campos antes de continuar.');
+        return;
+      }
+
+      const btn = this;
       const msg = `Olá ${revendedor}, me chamo ${nome}, sou da cidade de ${cidade} - ${uf}. Vim através da JP Audio!`;
       const url = `${linkBase}${encodeURIComponent(msg)}`;
-      window.open(url, '_blank');
+
+      btn.innerText = 'Aguarde...';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        window.open(url, '_blank');
+        fecharModal();
+        btn.innerText = 'Quero atendimento no WhatsApp';
+        btn.disabled = false;
+      }, 500);
     });
 
     window.addEventListener('click', function (e) {
       const modal = document.getElementById('popupContato');
       if (e.target === modal) {
-        modal.style.display = 'none';
+        fecharModal();
       }
     });
 
     window.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') {
-        document.getElementById('popupContato').style.display = 'none';
+        fecharModal();
       }
     });
 
