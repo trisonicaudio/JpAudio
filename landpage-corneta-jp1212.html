@@ -1,286 +1,249 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JP Audio - Potência, Fidelidade e Durabilidade no Som Automotivo</title>
-  <meta name="description" content="Fabricamos alto-falantes automotivos com qualidade premium. Potência real, fidelidade sonora e durabilidade comprovada. Compre direto da JP Audio." />
-  <meta name="keywords" content="alto-falante automotivo, corneta, driver, tweeter, som trio, JP Audio, som interno, som externo, potência, fidelidade, durabilidade" />
-  <meta name="author" content="JP Audio" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="JP Audio - Som Automotivo com Potência e Qualidade" />
-  <meta property="og:description" content="Alta performance em som automotivo direto da fábrica. Produtos testados e aprovados por especialistas." />
-  <meta property="og:image" content="https://www.jpaudio.com.br/img/jp-audio-og.jpg" />
-  <meta property="og:url" content="https://www.jpaudio.com.br/" />
-  <meta property="og:type" content="website" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="JP Audio - Potência e Fidelidade no Som Automotivo" />
-  <meta name="twitter:description" content="Som automotivo com qualidade premium direto da fábrica para revendedores e apaixonados por som." />
-  <meta name="twitter:image" content="https://www.jpaudio.com.br/img/jp-audio-og.jpg" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="https://www.jpaudio.com.br/favicon.png" type="image/png" />
-
-  <!-- Fontes e Estilos -->
+  <title>JP1212 | Corneta em Alumínio p/ Driver</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style-menu.css" />
-
+  <link rel="stylesheet" href="style-menu.css">
   <style>
-    html { font-size: 100%; }
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Rubik', sans-serif;
-      background-color: #f3f3f3;
-      color: #333;
-    }
-
-    .page-title {
-      background: #000;
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .page-title h1 {
-      font-size: 1.9rem;
-      font-weight: 800;
+      background-color: #f9f9f9;
+      color: #111;
+      line-height: 1.6;
     }
 
     .hero {
-      background-color: #ffffff;
-      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      background: linear-gradient(to bottom, #111, #222);
+      color: #fff;
       text-align: center;
     }
 
-    .hero h1 {
-      color: #ff6a00;
-      font-size: 2rem;
+    .hero img {
+      max-width: 300px;
+      border-radius: 12px;
       margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+      cursor: zoom-in;
+    }
+
+    .hero img:hover {
+      transform: scale(1.1);
+    }
+
+    .hero h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
     }
 
     .hero p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
+      max-width: 500px;
+      opacity: 0.9;
     }
 
-    .hero a {
-      display: inline-block;
-      background-color: #ff6a00;
-      color: #fff;
-      font-weight: bold;
-      padding: 1rem 2rem;
-      text-decoration: none;
-      border-radius: 8px;
-    }
-
-    .benefits {
-      display: flex;
-      justify-content: space-around;
-      padding: 3rem 1rem;
-      background-color: #fff;
-      flex-wrap: wrap;
-    }
-
-    .benefit {
-      max-width: 250px;
-      margin: 1rem;
-      text-align: center;
-    }
-
-    .benefit h2 { color: #ff6a00; margin-bottom: 0.5rem; }
-    .benefit p { color: #666; }
-
-    .produtos-destaque-section {
-      background-color: #fff9f3;
-      padding: 3rem 1rem;
-      text-align: center;
-    }
-
-    .produtos-destaque-section h2 {
-      font-size: 1.8rem;
-      color: #ff6a00;
-      margin-bottom: 2rem;
-    }
-
-    .grid-produtos {
+    .features {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 2rem;
-    }
-
-    .produto-card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 1rem;
-      width: 260px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-    }
-
-    .produto-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .produto-card img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 0.8rem;
-    }
-
-    .produto-card h3 { font-size: 1.2rem; color: #111; }
-    .produto-card p { font-size: 0.95rem; color: #555; margin: 0.5rem 0; }
-
-    .produto-card strong {
-      color: #ff6a00;
-      font-size: 1.1rem;
-      display: block;
-      margin-bottom: 0.8rem;
-    }
-
-    .produto-card a {
-      background-color: #ff6a00;
-      color: #fff;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-    }
-
-    .cta-section {
-      background-color: #f3f3f3;
-      padding: 3rem 1rem;
-      text-align: center;
-    }
-
-    .cta-section a {
-      background-color: #000;
-      color: #fff;
-      font-weight: bold;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-
-    .onde-comprar-section {
-      background: linear-gradient(to right, #ff6a00, #ff914d);
-      padding: 4rem 2rem;
-      text-align: center;
-      color: #fff;
-    }
-
-    .onde-comprar-section h2 { font-size: 1.8rem; margin-bottom: 1rem; }
-    .onde-comprar-section p { font-size: 1.1rem; margin-bottom: 2rem; }
-
-    .onde-comprar-section a {
-      background-color: #fff;
-      color: #ff6a00;
-      font-weight: bold;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-
-    footer {
-      background-color: #000;
-      text-align: center;
+      gap: 1rem;
       padding: 2rem;
     }
 
-    .social-icons a {
-      margin: 0 10px;
+    .feature {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+
+    .feature h3 {
+      color: #ff6600;
+      margin-bottom: 0.5rem;
+    }
+
+    .buy-section {
+      background: #ff6600;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .buy-section a {
       display: inline-block;
+      margin: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      background: #fff;
+      color: #ff6600;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
     }
 
-    .social-icons img {
-      height: 48px;
-      width: 48px;
-      transition: transform 0.2s ease;
+    .buy-section a:hover {
+      background: #ffe5d1;
     }
 
-    .social-icons img:hover {
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    .gallery img {
+      width: 220px;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      cursor: zoom-in;
+    }
+
+    .gallery img:hover {
       transform: scale(1.1);
+    }
+
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .proof {
+      background: #fff;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .proof h3 {
+      color: #111;
+      margin-bottom: 0.5rem;
+    }
+
+    .proof p {
+      font-size: 0.95rem;
     }
   </style>
 </head>
 
 <body>
-  <!-- MENU IMPORTADO EXTERNAMENTE -->
   <div id="menu-placeholder"></div>
 
-  <!-- NOVO BLOCO DE TÍTULO COM CLASSE .page-title -->
-  <div class="page-title">
-    <h1>JP Audio | Potência, Fidelidade e Durabilidade no Som Automotivo</h1>
-  </div>
+  <header style="background: #000; color: #fff; text-align: center; padding: 1.5rem 2rem;">
+    <h1 style="font-size: 1.9rem; font-weight: 800;">JP1212 | Corneta em Alumínio p/ Driver – Clareza e Presença no Trio Goiano</h1>
+  </header>
 
   <section class="hero">
-    <h1>Potência, Fidelidade e Durabilidade</h1>
-    <p>Alto-falantes para quem leva som automotivo a sério. Direto da fábrica para lojistas e instaladores.</p>
-    <a href="#contato" onclick="abrirModal()">Fale com a JP Audio</a>
+    <img src="img/C1212TGR .jpeg" alt="Corneta JP1212" />
+    <h2>Sua voz na frente</h2>
+    <p>A corneta feita para quem leva o Trio Goiano a sério.</p>
   </section>
 
-  <section class="benefits">
-    <div class="benefit">
-      <h2>🔊 Potência</h2>
-      <p>Projetado para entregar pressão sonora de verdade.</p>
+  <section class="features">
+    <div class="feature">
+      <h3>🧩 Compacta e Pronta para Qualquer Projeto</h3>
+      <p>Com frente de apenas 12x12 cm, é perfeita para forros de porta e paredinhas de som interno onde cornetas grandes não cabem.</p>
     </div>
-    <div class="benefit">
-      <h2>🎧 Fidelidade</h2>
-      <p>Qualidade de áudio que impressiona do grave ao agudo.</p>
+    <div class="feature">
+      <h3>✅ Compatibilidade Total</h3>
+      <p>Feita para drivers com rosca padrão de 1". Instalação rápida, sem adaptações.</p>
     </div>
-    <div class="benefit">
-      <h2>🛠️ Durabilidade</h2>
-      <p>Construído com materiais premium e controle de qualidade.</p>
+    <div class="feature">
+      <h3>🛠️ Alumínio Fundido com Acabamento Premium</h3>
+      <p>Produzida com alumínio de alta pureza, acabamento diamantado e pintura eletrostática — mais durabilidade e presença estética.</p>
     </div>
-  </section>
-
-  <section class="produtos-destaque-section" id="produtos-destaque">
-    <h2>🔥 Produtos em Destaque</h2>
-    <div class="grid-produtos">
-      <div class="produto-card">
-        <img src="img/C1212TGR .jpeg" alt="Corneta JP1212">
-        <h3>Corneta JP1212</h3>
-        <p>Compacta, leve e feita para som interno Trio Goiano.</p>
-        <strong>R$ 89,90</strong>
-        <a href="landpage-corneta-jp1212.html">Ver mais</a>
-      </div>
+    <div class="feature">
+      <h3>🔊 Projeção Vocal Focada</h3>
+      <p>Direcionamento preciso para destacar a voz, mesmo em sons internos potentes e ambientes fechados.</p>
     </div>
   </section>
 
-  <section class="onde-comprar-section">
-    <h2>Encontre um revendedor oficial JP Audio</h2>
-    <p>Veja onde comprar nossos produtos em todo o Brasil com segurança e procedência garantida.</p>
-    <a href="onde-comprar.html">Ver revendedores</a>
+  <section class="buy-section">
+    <h2>Garanta a sua hoje por apenas R$ 89,90</h2>
+    <p>Compre agora pelo Mercado Livre ou solicite um orçamento direto pelo WhatsApp.</p>
+    <a href="https://produto.mercadolivre.com.br/MLB-5444785574-corneta-aluminio-jp-audio-p-driver-trio-goiano-interno-_JM" target="_blank">Comprar agora no Mercado Livre 🛒</a>
+    <a href="#popup" onclick="document.getElementById('popup').style.display='flex'">Quero um orçamento no WhatsApp 📞</a>
   </section>
 
-  <section class="cta-section" id="contato">
-    <h2>Quer revender ou comprar nossos produtos?</h2>
-    <a href="#" onclick="abrirModal()">Entrar em contato</a>
+  <section class="gallery">
+    <img src="img/C1212TGR FR.jpeg" alt="Vista frontal" />
+    <img src="img/C1212TGR LD.jpeg" alt="Vista lateral direita" />
+    <img src="img/C1212TGR LD2.jpeg" alt="Vista lateral esquerda" />
+    <img src="img/C1212TGR-driver.jpeg" alt="Com driver montado" />
+  </section>
+
+  <section class="proof">
+    <h3>🛡️ Compra segura, direto da fábrica</h3>
+    <p>Produto com garantia de fabricação e suporte técnico da JP Audio.<br /></p>
   </section>
 
   <footer>
-    <div class="social-icons">
-      <a href="https://www.instagram.com/jpaudio_/" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram JP Audio">
-      </a>
-      <a href="https://www.facebook.com/jpaudioaltofalantes" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook JP Audio">
-      </a>
-    </div>
+    © JP Audio - Potência, fidelidade e durabilidade no som automotivo
   </footer>
+
+  <div id="popup" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;z-index:1000;">
+    <div style="background:#fff;padding:2rem;border-radius:12px;max-width:400px;width:90%;position:relative;">
+      <h2 style="margin-bottom:1rem;color:#111;">Solicitar Orçamento</h2>
+      <form onsubmit="return montarMensagem()">
+        <label for="nome">Seu nome:</label><br />
+        <input type="text" id="nome" name="nome" required style="width:100%;margin-bottom:0.8rem;padding:0.5rem;border:1px solid #ccc;border-radius:6px;"><br />
+        <label for="cep">Seu CEP:</label><br />
+        <input type="text" id="cep" name="cep" required style="width:100%;margin-bottom:0.8rem;padding:0.5rem;border:1px solid #ccc;border-radius:6px;"><br />
+        <label for="quantidade">Quantidade desejada:</label><br />
+        <input type="number" id="quantidade" name="quantidade" required min="1" style="width:100%;margin-bottom:1rem;padding:0.5rem;border:1px solid #ccc;border-radius:6px;"><br />
+        <input type="submit" value="Enviar pelo WhatsApp" style="width:100%;background:#25d366;color:#fff;padding:0.8rem;border:none;border-radius:6px;font-weight:600;cursor:pointer;">
+      </form>
+      <button onclick="document.getElementById('popup').style.display='none'" style="position:absolute;top:10px;right:10px;background:none;border:none;font-size:1.2rem;cursor:pointer;">&times;</button>
+    </div>
+  </div>
 
   <script>
     fetch("menu.html")
       .then(response => response.text())
-      .then(html => {
-        document.getElementById("menu-placeholder").innerHTML = html;
+      .then(data => {
+        document.getElementById("menu-placeholder").innerHTML = data;
       });
+
+    function montarMensagem() {
+      const nome = document.getElementById('nome').value.trim();
+      const cep = document.getElementById('cep').value.trim();
+      const qtd = document.getElementById('quantidade').value.trim();
+
+      const cepValido = /^\d{5}-?\d{3}$/.test(cep);
+      if (!nome || !cepValido || !qtd || isNaN(qtd) || qtd <= 0) {
+        alert("Por favor, preencha todos os campos corretamente.");
+        return false;
+      }
+
+      const msg = `Olá 👋🏼, meu nome é ${nome}.
+📍 CEP: ${cep}
+📄 Produto: Corneta em Alumínio JP1212 P/ Driver com rosca
+📦 Quantidade desejada: ${qtd}
+
+Tenho interesse nesse item e gostaria de receber uma sugestão de orçamento.
+Aguardo retorno. Obrigado!`;
+
+      const url = `https://wa.me/5599984491491?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+      document.getElementById('popup').style.display = 'none';
+      return false;
+    }
   </script>
 </body>
+
 </html>
