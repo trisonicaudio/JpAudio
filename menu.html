@@ -12,3 +12,23 @@
     <li><a href="index.html#contato">Contato</a></li>
   </ul>
 </nav>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+  }
+
+  // Fecha o menu ao clicar em qualquer link (mobile)
+  document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.getElementById("navLinks");
+    const links = navLinks.querySelectorAll("a");
+
+    links.forEach(link => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth <= 768) {
+          navLinks.classList.remove("active");
+        }
+      });
+    });
+  });
+</script>
