@@ -1,28 +1,226 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JP Audio - Qualidade em Som Automotivo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="menu-style.css"> <!-- CSS EXTERNO PARA O MENU -->
+  <style>
+    html {
+      font-size: 100%;
+    }
 
-  <!-- Fonte e Estilo -->
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+    body {
+      margin: 0;
+      font-family: 'Rubik', sans-serif;
+      background-color: #f3f3f3;
+      color: #333;
+    }
+
+    .hero {
+      background-color: #ffffff;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      color: #ff6a00;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero a {
+      display: inline-block;
+      background-color: #ff6a00;
+      color: #fff;
+      font-weight: bold;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    .benefits {
+      display: flex;
+      justify-content: space-around;
+      padding: 3rem 1rem;
+      background-color: #fff;
+      flex-wrap: wrap;
+    }
+
+    .benefit {
+      max-width: 250px;
+      margin: 1rem;
+      text-align: center;
+    }
+
+    .benefit h2 {
+      color: #ff6a00;
+      margin-bottom: 0.5rem;
+    }
+
+    .benefit p {
+      color: #666;
+    }
+
+    .produtos-destaque-section {
+      background-color: #fff9f3;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    .produtos-destaque-section h2 {
+      font-size: 1.8rem;
+      color: #ff6a00;
+      margin-bottom: 2rem;
+    }
+
+    .grid-produtos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .produto-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      width: 260px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .produto-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .produto-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 0.8rem;
+    }
+
+    .produto-card h3 {
+      font-size: 1.2rem;
+      color: #111;
+    }
+
+    .produto-card p {
+      font-size: 0.95rem;
+      color: #555;
+      margin: 0.5rem 0;
+    }
+
+    .produto-card strong {
+      color: #ff6a00;
+      font-size: 1.1rem;
+      display: block;
+      margin-bottom: 0.8rem;
+    }
+
+    .produto-card a {
+      background-color: #ff6a00;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .cta-section {
+      background-color: #f3f3f3;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    .cta-section a {
+      background-color: #000;
+      color: #fff;
+      font-weight: bold;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .onde-comprar-section {
+      background: linear-gradient(to right, #ff6a00, #ff914d);
+      padding: 4rem 2rem;
+      text-align: center;
+      color: #fff;
+    }
+
+    .onde-comprar-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .onde-comprar-section p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .onde-comprar-section a {
+      background-color: #fff;
+      color: #ff6a00;
+      font-weight: bold;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    footer {
+      background-color: #000;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      display: inline-block;
+    }
+
+    .social-icons img {
+      height: 48px;
+      width: 48px;
+      transition: transform 0.2s ease;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .hero a {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <img src="LOGO-JP-AUDIO-2025.png" alt="JP Audio Logo">
+  </header>
 
-  <!-- Menu externo será inserido aqui -->
-  <div id="menu-placeholder"></div>
-
-  <!-- Hero Section -->
   <section class="hero">
     <h1>Potência, Fidelidade e Durabilidade</h1>
     <p>Alto-falantes para quem leva som automotivo a sério. Direto da fábrica para lojistas e instaladores.</p>
-    <a href="#contato">Fale com a JP Audio</a>
+    <a href="#contato" onclick="abrirModal()">Fale com a JP Audio</a>
   </section>
 
-  <!-- Outras seções da página -->
-  <!-- Exemplo de próxima seção -->
   <section class="benefits">
     <div class="benefit">
       <h2>🔊 Potência</h2>
@@ -38,16 +236,39 @@
     </div>
   </section>
 
-  <!-- Rodapé (se desejar, pode colocar aqui ou via outro include) -->
+  <section class="produtos-destaque-section">
+    <h2>🔥 Produtos em Destaque</h2>
+    <div class="grid-produtos">
+      <div class="produto-card">
+        <img src="img/C1212TGR .jpeg" alt="Corneta JP1212">
+        <h3>Corneta JP1212</h3>
+        <p>Compacta, leve e feita para som interno Trio Goiano.</p>
+        <strong>R$ 89,90</strong>
+        <a href="landpage-corneta-jp1212.html">Ver mais</a>
+      </div>
+    </div>
+  </section>
 
-  <!-- Script para carregar o menu automaticamente -->
-  <script>
-    fetch("menu.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("menu-placeholder").innerHTML = data;
-      });
-  </script>
+  <section class="onde-comprar-section">
+    <h2>Encontre um revendedor oficial JP Audio</h2>
+    <p>Veja onde comprar nossos produtos em todo o Brasil com segurança e procedência garantida.</p>
+    <a href="onde-comprar.html">Ver revendedores</a>
+  </section>
 
+  <section class="cta-section" id="contato">
+    <h2>Quer revender ou comprar nossos produtos?</h2>
+    <a href="#" onclick="abrirModal()">Entrar em contato</a>
+  </section>
+
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/jpaudio_/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram JP Audio">
+      </a>
+      <a href="https://www.facebook.com/jpaudioaltofalantes" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook JP Audio">
+      </a>
+    </div>
+  </footer>
 </body>
 </html>
