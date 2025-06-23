@@ -1,16 +1,17 @@
 .navbar {
-  background-color: #000;
-  color: #fff;
-  padding: 1rem 1.5rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  padding: 1rem 2rem;
+  position: relative;
+  z-index: 999;
 }
 
 .menu-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
-  margin: auto;
   flex-wrap: wrap;
 }
 
@@ -21,13 +22,16 @@
 .nav-links {
   list-style: none;
   display: flex;
+  align-items: center;
   gap: 2rem;
+  margin: 0;
 }
 
 .nav-links li a {
-  color: #fff;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #222;
   transition: color 0.3s;
 }
 
@@ -39,29 +43,31 @@
   display: none;
   font-size: 2rem;
   cursor: pointer;
-  color: #fff;
+  color: #222;
 }
 
-/* Mobile */
+/* RESPONSIVO */
 @media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
   .nav-links {
     display: none;
     flex-direction: column;
     width: 100%;
-    background-color: #000;
+    background-color: #fff;
     margin-top: 1rem;
+    padding: 1rem 0;
+    border-top: 1px solid #ddd;
   }
 
   .nav-links li {
-    padding: 0.8rem 0;
     text-align: center;
+    padding: 0.8rem 0;
   }
 
   .nav-links.active {
     display: flex;
-  }
-
-  .hamburger {
-    display: block;
   }
 }
