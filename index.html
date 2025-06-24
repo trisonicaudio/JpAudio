@@ -15,24 +15,76 @@
       color: #333;
     }
 
-    /* todo o resto do estilo original permanece aqui */
+    .alerta-loja {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 1.2rem 2rem;
+      font-size: 1.1rem;
+    }
+    .alerta-loja a {
+      color: #ff6a00;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .popup-loja {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.6);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+    }
+    .popup-loja-content {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    .popup-loja-content h2 {
+      color: #ff6a00;
+      margin-bottom: 1rem;
+    }
+    .popup-loja-content p {
+      margin-bottom: 1.5rem;
+    }
+    .popup-loja-content a {
+      display: inline-block;
+      background: #ff6a00;
+      color: #fff;
+      padding: 0.8rem 1.2rem;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .popup-loja-content button {
+      margin-top: 1rem;
+      background: none;
+      border: none;
+      color: #999;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    /* restante dos estilos permanece igual */
     .hero {
       background-color: #ffffff;
       padding: 4rem 2rem;
       text-align: center;
     }
-
     .hero h1 {
       color: #ff6a00;
       font-size: 2rem;
       margin-bottom: 1rem;
     }
-
     .hero p {
       font-size: 1.1rem;
       margin-bottom: 2rem;
     }
-
     .hero a {
       display: inline-block;
       background-color: #ff6a00;
@@ -42,21 +94,13 @@
       text-decoration: none;
       border-radius: 8px;
     }
-
     .benefits { display: flex; justify-content: space-around; padding: 3rem 1rem; background-color: #fff; flex-wrap: wrap; }
-
     .benefit { max-width: 250px; margin: 1rem; text-align: center; }
-
     .benefit h2 { color: #ff6a00; margin-bottom: 0.5rem; }
-
     .benefit p { color: #666; }
-
     .produtos-destaque-section { background-color: #fff9f3; padding: 3rem 1rem; text-align: center; }
-
     .produtos-destaque-section h2 { font-size: 1.8rem; color: #ff6a00; margin-bottom: 2rem; }
-
     .grid-produtos { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
-
     .produto-card {
       background: #fff;
       border-radius: 10px;
@@ -65,17 +109,11 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       transition: transform 0.2s;
     }
-
     .produto-card:hover { transform: translateY(-5px); }
-
     .produto-card img { width: 100%; border-radius: 8px; margin-bottom: 0.8rem; }
-
     .produto-card h3 { font-size: 1.2rem; color: #111; }
-
     .produto-card p { font-size: 0.95rem; color: #555; margin: 0.5rem 0; }
-
     .produto-card strong { color: #ff6a00; font-size: 1.1rem; display: block; margin-bottom: 0.8rem; }
-
     .produto-card a {
       background-color: #ff6a00;
       color: #fff;
@@ -85,9 +123,7 @@
       font-weight: bold;
       display: inline-block;
     }
-
     .cta-section { background-color: #f3f3f3; padding: 3rem 1rem; text-align: center; }
-
     .cta-section a {
       background-color: #000;
       color: #fff;
@@ -96,18 +132,14 @@
       border-radius: 8px;
       text-decoration: none;
     }
-
     .onde-comprar-section {
       background: linear-gradient(to right, #ff6a00, #ff914d);
       padding: 4rem 2rem;
       text-align: center;
       color: #fff;
     }
-
     .onde-comprar-section h2 { font-size: 1.8rem; margin-bottom: 1rem; }
-
     .onde-comprar-section p { font-size: 1.1rem; margin-bottom: 2rem; }
-
     .onde-comprar-section a {
       background-color: #fff;
       color: #ff6a00;
@@ -116,24 +148,33 @@
       border-radius: 8px;
       text-decoration: none;
     }
-
     footer { background-color: #000; text-align: center; padding: 2rem; }
-
     .social-icons a { margin: 0 10px; display: inline-block; }
-
     .social-icons img {
       height: 48px;
       width: 48px;
       transition: transform 0.2s ease;
     }
-
     .social-icons img:hover { transform: scale(1.1); }
   </style>
 </head>
 <body>
+  <div class="alerta-loja">
+    🏭 <strong>Compre direto da fábrica!</strong> Descontos progressivos e garantia de procedência. 👉 <a href="https://trisonic.com.br/loja-oficial-jpaudio" target="_blank">Acesse a Loja Oficial</a>
+  </div>
 
   <!-- MENU IMPORTADO EXTERNAMENTE -->
   <div id="menu-placeholder"></div>
+
+  <div class="popup-loja" id="popupLoja">
+    <div class="popup-loja-content">
+      <h2>🎯 Loja Oficial JP Audio</h2>
+      <p>Aproveite descontos direto da fábrica e receba com garantia.</p>
+      <a href="https://trisonic.com.br" target="_blank">Ir para a Loja</a>
+      <br />
+      <button onclick="fecharPopup()">Fechar</button>
+    </div>
+  </div>
 
   <section class="hero">
     <h1>Potência, Fidelidade e Durabilidade</h1>
@@ -199,10 +240,18 @@
       });
   </script>
   <script>
-  function toggleMenu() {
-    const nav = document.getElementById("navLinks");
-    nav.classList.toggle("active");
-  }
-</script>
+    function toggleMenu() {
+      const nav = document.getElementById("navLinks");
+      nav.classList.toggle("active");
+    }
+    function fecharPopup() {
+      document.getElementById("popupLoja").style.display = "none";
+    }
+    window.onload = () => {
+      setTimeout(() => {
+        document.getElementById("popupLoja").style.display = "flex";
+      }, 800);
+    }
+  </script>
 </body>
 </html>
