@@ -177,7 +177,7 @@
     <h2>Garanta a sua hoje por apenas R$ 89,90</h2>
     <p>Compre agora pelo Mercado Livre ou solicite um orçamento direto pelo WhatsApp.</p>
     <a href="https://produto.mercadolivre.com.br/MLB-5444785574-corneta-aluminio-jp-audio-p-driver-trio-goiano-interno-_JM" target="_blank">Comprar agora no Mercado Livre 🛒</a>
-    <a href="#popup" onclick="document.getElementById('popup').style.display='flex'">Quero um orçamento no WhatsApp 📞</a>
+    <a href="https://trisonic.com.br/produtos/corneta-em-aluminio-jp-audio-12x12-p-driver-com-rosca-1/" target="_blank">Comprar na Loja Oficial</a>
   </section>
 
   <section class="gallery">
@@ -203,53 +203,12 @@
     © JP Audio - Potência, fidelidade e durabilidade no som automotivo
   </footer>
 
-  <div id="popup" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;z-index:1000;">
-    <div style="background:#fff;padding:2rem;border-radius:12px;max-width:400px;width:90%;position:relative;">
-      <h2 style="margin-bottom:1rem;color:#111;">Solicitar Orçamento</h2>
-      <form onsubmit="return montarMensagem()">
-        <label for="nome">Seu nome:</label><br />
-        <input type="text" id="nome" name="nome" required style="width:100%;margin-bottom:0.8rem;padding:0.5rem;border:1px solid #ccc;border-radius:6px;"><br />
-        <label for="cep">Seu CEP:</label><br />
-        <input type="text" id="cep" name="cep" required style="width:100%;margin-bottom:0.8rem;padding:0.5rem;border:1px solid #ccc;border-radius:6px;"><br />
-        <label for="quantidade">Quantidade desejada:</label><br />
-        <input type="number" id="quantidade" name="quantidade" required min="1" style="width:100%;margin-bottom:1rem;padding:0.5rem;border:1px solid #ccc;border-radius:6px;"><br />
-        <input type="submit" value="Enviar pelo WhatsApp" style="width:100%;background:#25d366;color:#fff;padding:0.8rem;border:none;border-radius:6px;font-weight:600;cursor:pointer;">
-      </form>
-      <button onclick="document.getElementById('popup').style.display='none'" style="position:absolute;top:10px;right:10px;background:none;border:none;font-size:1.2rem;cursor:pointer;">&times;</button>
-    </div>
-  </div>
-
   <script>
     fetch("menu.html")
       .then(response => response.text())
       .then(data => {
         document.getElementById("menu-placeholder").innerHTML = data;
       });
-
-    function montarMensagem() {
-      const nome = document.getElementById('nome').value.trim();
-      const cep = document.getElementById('cep').value.trim();
-      const qtd = document.getElementById('quantidade').value.trim();
-
-      const cepValido = /^\d{5}-?\d{3}$/.test(cep);
-      if (!nome || !cepValido || !qtd || isNaN(qtd) || qtd <= 0) {
-        alert("Por favor, preencha todos os campos corretamente.");
-        return false;
-      }
-
-      const msg = `Olá 👋🏼, meu nome é ${nome}.
-📍 CEP: ${cep}
-📄 Produto: Corneta em Alumínio JP1212 P/ Driver com rosca
-🚞 Quantidade desejada: ${qtd}
-
-Tenho interesse nesse item e gostaria de receber uma sugestão de orçamento.
-Aguardo retorno. Obrigado!`;
-
-      const url = `https://wa.me/5599984491491?text=${encodeURIComponent(msg)}`;
-      window.open(url, '_blank');
-      document.getElementById('popup').style.display = 'none';
-      return false;
-    }
   </script>
   <script>
     function toggleMenu() {
